@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var icex = {lat: -19.868938, lng: -43.964368};
+        var eng1 = {lat: -19.869963, lng: -43.963089};
+        var eng2 = {lat: -19.869379, lng: -43.962531};
+        var face = {lat: -19.867596, lng: -43.963301};
+        var praca1 = {lat: -19.867545, lng: -43.964902};
+        var praca2 = {lat: -19.867806, lng: -43.964984};
+        var icb = {lat: -19.867858, lng:  -43.965933};
+        var quimica = {lat: -19.871685, lng: -43.963891};
+        var fale = {lat: -19.866346, lng: -43.960555};
+        var praca2 = {lat: -19.867006, lng: -43.961593};
+        var location;
+          
+          
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyBS3o-puKEEcDlLSWzI6fRG9kBJGy9NU&callback=initMap">
+    </script>
+  </body>
+</html>
