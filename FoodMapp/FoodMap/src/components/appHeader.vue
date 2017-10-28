@@ -12,7 +12,7 @@
             mode="horizontal"
             :router="true">
           <el-submenu index="1">
-            <template slot="title">Avaliações</template>
+            <template slot="title">Rating</template>
             <el-menu-item index="/truckLoad">Usuário</el-menu-item>
           </el-submenu>
           <el-submenu index="2">
