@@ -1,8 +1,8 @@
 <template>
   <div class="teste">
     <el-menu default-active="activeIndex" mode="horizontal" @select="handleSelect" :router="true">
-      <el-menu-item index="/mineShot">Mine Shot</el-menu-item>
-      <el-menu-item index="/truckLoad">Truck Load</el-menu-item>
+      <!-- <el-menu-item index="/mineShot">Mine Shot</el-menu-item>
+      <el-menu-item index="/truckLoad">Truck Load</el-menu-item> -->
       <el-menu-item>Block Model</el-menu-item>
     </el-menu>  
   </div>
