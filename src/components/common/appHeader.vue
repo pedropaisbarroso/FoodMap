@@ -13,7 +13,8 @@
             :router="true">
           <el-submenu index="1">
             <template slot="title">Rating</template>
-            <el-menu-item index="/truckLoad">Usuário</el-menu-item>
+            <el-menu-item index="/rating">Avaliações</el-menu-item>
+            <el-menu-item index="/ranking">Ranking Geral</el-menu-item>
           </el-submenu>
           <el-submenu index="2">
             <template slot="title">Cardápios</template>
