@@ -1,34 +1,34 @@
 <template>
   <div>
         <el-row class="container">
-        <div class="rating-header">
-            <el-col :span="22">
-            <h1>Avaliações das cantinas</h1 >
-            </el-col>
-        </div>
-        <div class="align-right" :span="22">
-            <el-button @click="openModal" class="add-button">add</el-button>
-        </div>
-        <rating-table></rating-table>
+          <div class="cadastro-header">
+              <el-col :span="22">
+              <h1>Cadastro de novo avaliador:</h1 >
+              </el-col>
+          </div>
+          <div class="align-right" :span="22">
+              <el-button @click="openModal" class="add-button">add</el-button>
+          </div>
+          <cadastro-table></cadastro-table>
         </el-row> 
   </div>  
 </template>
- dafadfas 
+ dafadfas
 <script>  
 import { mapGetters, mapActions } from 'vuex'
-import ratingTable from './ratingTable'
+//import cadastroTable from './cadastroTable'
 
 
 export default {
   computed: {
-    ...mapGetters('rating', ['content', 'ratings']),
+    //...mapGetters('cadastro', ['content', 'cadastros']),
 
   },
   created: function() {
-    this.getRatings();
+    //this.getCadastros();
   },
   components: {
-      ratingTable: ratingTable
+      // cadastroTable: cadastroTable
   },
   data() {
     return {
@@ -36,7 +36,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions('rating', ['getRatings', 'getShifts']),
+    //...mapActions('cadastro', ['getCadastros', 'getShifts']),
     openModal(){
       this.showModal = true
     },
@@ -47,11 +47,11 @@ export default {
 }
 </script>
 <style scoped>
-.rating-header {
+.cadastro-header {
   padding: 0% 0% 4% 0%;
 }
 
-.rating-header h1 {
+.cadastro-header h1 {
   color:#286a6a;
   font-weight: 500;
   text-align: center;
@@ -68,4 +68,3 @@ export default {
   text-align: right;
   padding: 10px 0px;
 }
-</style>

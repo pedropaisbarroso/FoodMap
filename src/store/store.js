@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import { Message } from 'element-ui';
 import { RatingModule } from './modules/rating'
+import { CadastroModule } from './modules/cadastro'
 
 
 Vue.use(Vuex);
@@ -21,7 +22,8 @@ export const store = new Vuex.Store({
     }
   },
   modules: {
-    rating: RatingModule
+    rating: RatingModule,
+    cadastro: CadastroModule
   }
 })
 
