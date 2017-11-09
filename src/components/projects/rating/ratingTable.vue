@@ -1,36 +1,30 @@
 <template>
   <div>
-    <el-table
+   <el-table
         :data="ratingSliced(page)"
          stripe class="appTable">fdasfad
-      <el-table-column
+        <el-table-column
           prop="date"
-          :label="teste"
+          label="Data"
           :formatter="formatDate"
           :header-align="'center'">
       </el-table-column>
       <el-table-column 
-          prop="shift"
-          :label="teste"
+          prop="name"
+          label='Avaliador'
           :header-align="'center'">
       </el-table-column>
       <el-table-column
-          prop="initialTonnes"
-          :label="teste"
+          prop="product"
+          label="Avaliado"
           :header-align="'center'">
       </el-table-column>
       <el-table-column
-          prop="finalTonnes"
-          :label="teste"
+          prop="rate"
+          label="Nota"
           :header-align="'center'">
-        <template scope="load">
-          <el-input
-              @blur="updateRating(load.$index)"
-              v-model="load.row.finalTonnes.edited">
-          </el-input>
-        </template>
       </el-table-column>
-      <el-table-column
+      <!-- <el-table-column
           prop="tonnes"
           :label="teste"
           :header-align="'center'">
@@ -72,7 +66,7 @@
               v-model="load.row.operationalDowntime.edited">
           </el-input>
         </template>
-      </el-table-column>
+      </el-table-column> -->
     </el-table>
     <el-pagination
         class="rating-pagination"
@@ -94,7 +88,7 @@ export default {
   },
   data() {
     return {
-      loads: [],
+      rating: [],
       page: 1,
     };
   },
