@@ -13,7 +13,7 @@
         </el-row> 
   </div>  
 </template>
-
+ dafadfas
 <script>  
 import { mapGetters, mapActions } from 'vuex'
 import ratingTable from './ratingTable'
