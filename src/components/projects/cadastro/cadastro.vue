@@ -3,13 +3,11 @@
         <el-row class="container">
           <div class="cadastro-header">
               <el-col :span="22">
-              <h1>Cadastro de novo avaliador:</h1 >
+                <h1>Cadastro de novo avaliador:</h1 >
               </el-col>
           </div>
-          <div class="align-right" :span="22">
-              <el-button @click="openModal" class="add-button">add</el-button>
-          </div>
-          <cadastro-table></cadastro-table>
+
+
         </el-row> 
   </div>  
 </template>
