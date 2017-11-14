@@ -1,0 +1,42 @@
+create table cursos(
+	 id integer not null identity 
+	,nomeCurso nvarchar(max) not null primary key
+	,constraint AK_nomeCurso unique(nomeCurso)
+);
+
+create table tabUsers (
+	 matricula integer not null primary key
+	,nome nvarchar(max) not null
+	,curso nvarchar(max) not null
+	,email nvarchar(max)
+	,senha nvarchar(max) not null
+	,foreign key (curso) references cursos(nomeCurso)
+	,constraint AK_aluno unique(matricula, nome, email)
+);
+
+create table tabCantina(
+	 id integer not null identity
+	,nomeCantina nvarchar(max) not null primary key
+	,predio nvarchar(max) not null
+	,constraint AK_cantina unique(nomeCantina)
+);
+
+create table tabProduto(
+	 id integer not null identity
+	,nomeProduto nvarchar(max) not null primary key
+	,tipoProduto nvarchar(max) not null
+	,constraint AK_produto unique(nomeProduto)
+);
+
+create table tabAvaliacao(
+	  id integer not null identity primary key
+	 ,datahora datetime not null 
+	 ,matricula integer not null
+	 ,nomeCantina nvarchar(max) not null
+	 ,produto nvarchar(max) not null
+	 ,precoAtual real
+	 ,nota integer not null
+	 ,foreign key (matricula) references tabUsers(matricula)
+	 ,foreign key (cantinaId) references tabCantina(nomeCantina)
+	 ,foreign key (produto) references tabproduto(nomeProduto)
+);
