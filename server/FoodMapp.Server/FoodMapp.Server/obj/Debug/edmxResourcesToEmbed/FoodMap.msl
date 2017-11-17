@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AedsUfmgPedroBarrosoModelStoreContainer" CdmEntityContainer="AedsUfmgPedroBarrosoEntities">
+    <EntitySetMapping Name="Avaliacoes">
+      <EntityTypeMapping TypeName="AedsUfmgPedroBarrosoModel.Avaliaco">
+        <MappingFragment StoreEntitySet="Avaliacoes">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="datahora" ColumnName="datahora" />
+          <ScalarProperty Name="matricula" ColumnName="matricula" />
+          <ScalarProperty Name="nomeCantina" ColumnName="nomeCantina" />
+          <ScalarProperty Name="produto" ColumnName="produto" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+          <ScalarProperty Name="precoAtual" ColumnName="precoAtual" />
+          <ScalarProperty Name="nota" ColumnName="nota" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cantinas">
+      <EntityTypeMapping TypeName="AedsUfmgPedroBarrosoModel.Cantina">
+        <MappingFragment StoreEntitySet="Cantinas">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nomeCantina" ColumnName="nomeCantina" />
+          <ScalarProperty Name="predio" ColumnName="predio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cursos">
+      <EntityTypeMapping TypeName="AedsUfmgPedroBarrosoModel.Curso">
+        <MappingFragment StoreEntitySet="Cursos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nomeCurso" ColumnName="nomeCurso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produtos">
+      <EntityTypeMapping TypeName="AedsUfmgPedroBarrosoModel.Produto">
+        <MappingFragment StoreEntitySet="Produtos">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nomeProduto" ColumnName="nomeProduto" />
+          <ScalarProperty Name="tipoProduto" ColumnName="tipoProduto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="AedsUfmgPedroBarrosoModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="matricula" ColumnName="matricula" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="curso" ColumnName="curso" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="senha" ColumnName="senha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

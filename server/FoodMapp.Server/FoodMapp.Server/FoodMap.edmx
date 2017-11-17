@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AedsUfmgPedroBarrosoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Avaliacoes">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="datahora" Type="datetime" Nullable="false" />
+          <Property Name="matricula" Type="int" Nullable="false" />
+          <Property Name="nomeCantina" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="produto" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="comentario" Type="nvarchar(max)" />
+          <Property Name="precoAtual" Type="real" />
+          <Property Name="nota" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cantinas">
+          <Key>
+            <PropertyRef Name="nomeCantina" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomeCantina" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="predio" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cursos">
+          <Key>
+            <PropertyRef Name="nomeCurso" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomeCurso" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Produtos">
+          <Key>
+            <PropertyRef Name="nomeProduto" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomeProduto" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="tipoProduto" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="matricula" />
+          </Key>
+          <Property Name="matricula" Type="int" Nullable="false" />
+          <Property Name="nome" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="curso" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="email" Type="nvarchar" MaxLength="64" />
+          <Property Name="senha" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__tabAvalia__matri__37A5467C">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+          <End Role="Avaliacoes" Type="Self.Avaliacoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="matricula" />
+            </Principal>
+            <Dependent Role="Avaliacoes">
+              <PropertyRef Name="matricula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tabAvalia__nomeC__38996AB5">
+          <End Role="Cantinas" Type="Self.Cantinas" Multiplicity="1" />
+          <End Role="Avaliacoes" Type="Self.Avaliacoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cantinas">
+              <PropertyRef Name="nomeCantina" />
+            </Principal>
+            <Dependent Role="Avaliacoes">
+              <PropertyRef Name="nomeCantina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tabAvalia__produ__398D8EEE">
+          <End Role="Produtos" Type="Self.Produtos" Multiplicity="1" />
+          <End Role="Avaliacoes" Type="Self.Avaliacoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produtos">
+              <PropertyRef Name="nomeProduto" />
+            </Principal>
+            <Dependent Role="Avaliacoes">
+              <PropertyRef Name="produto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tabUsers__curso__2F10007B">
+          <End Role="Cursos" Type="Self.Cursos" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cursos">
+              <PropertyRef Name="nomeCurso" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="curso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AedsUfmgPedroBarrosoModelStoreContainer">
+          <EntitySet Name="Avaliacoes" EntityType="Self.Avaliacoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cantinas" EntityType="Self.Cantinas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cursos" EntityType="Self.Cursos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Produtos" EntityType="Self.Produtos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tabAvalia__matri__37A5467C" Association="Self.FK__tabAvalia__matri__37A5467C">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Avaliacoes" EntitySet="Avaliacoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tabAvalia__nomeC__38996AB5" Association="Self.FK__tabAvalia__nomeC__38996AB5">
+            <End Role="Cantinas" EntitySet="Cantinas" />
+            <End Role="Avaliacoes" EntitySet="Avaliacoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tabAvalia__produ__398D8EEE" Association="Self.FK__tabAvalia__produ__398D8EEE">
+            <End Role="Produtos" EntitySet="Produtos" />
+            <End Role="Avaliacoes" EntitySet="Avaliacoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tabUsers__curso__2F10007B" Association="Self.FK__tabUsers__curso__2F10007B">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AedsUfmgPedroBarrosoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Avaliaco">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="datahora" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="matricula" Type="Int32" Nullable="false" />
+          <Property Name="nomeCantina" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="produto" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="precoAtual" Type="Single" />
+          <Property Name="nota" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__tabAvalia__matri__37A5467C" FromRole="Avaliacoes" ToRole="Usuarios" />
+          <NavigationProperty Name="Cantina" Relationship="Self.FK__tabAvalia__nomeC__38996AB5" FromRole="Avaliacoes" ToRole="Cantinas" />
+          <NavigationProperty Name="Produto1" Relationship="Self.FK__tabAvalia__produ__398D8EEE" FromRole="Avaliacoes" ToRole="Produtos" />
+        </EntityType>
+        <EntityType Name="Cantina">
+          <Key>
+            <PropertyRef Name="nomeCantina" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomeCantina" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="predio" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Avaliacoes" Relationship="Self.FK__tabAvalia__nomeC__38996AB5" FromRole="Cantinas" ToRole="Avaliacoes" />
+        </EntityType>
+        <EntityType Name="Curso">
+          <Key>
+            <PropertyRef Name="nomeCurso" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomeCurso" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK__tabUsers__curso__2F10007B" FromRole="Cursos" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Produto">
+          <Key>
+            <PropertyRef Name="nomeProduto" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomeProduto" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tipoProduto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Avaliacoes" Relationship="Self.FK__tabAvalia__produ__398D8EEE" FromRole="Produtos" ToRole="Avaliacoes" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="matricula" />
+          </Key>
+          <Property Name="matricula" Type="Int32" Nullable="false" />
+          <Property Name="nome" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="curso" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="64" FixedLength="false" Unicode="true" />
+          <Property Name="senha" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Avaliacoes" Relationship="Self.FK__tabAvalia__matri__37A5467C" FromRole="Usuarios" ToRole="Avaliacoes" />
+          <NavigationProperty Name="Curso1" Relationship="Self.FK__tabUsers__curso__2F10007B" FromRole="Usuarios" ToRole="Cursos" />
+        </EntityType>
+        <Association Name="FK__tabAvalia__matri__37A5467C">
+          <End Role="Usuarios" Type="Self.Usuario" Multiplicity="1" />
+          <End Role="Avaliacoes" Type="Self.Avaliaco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="matricula" />
+            </Principal>
+            <Dependent Role="Avaliacoes">
+              <PropertyRef Name="matricula" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tabAvalia__nomeC__38996AB5">
+          <End Role="Cantinas" Type="Self.Cantina" Multiplicity="1" />
+          <End Role="Avaliacoes" Type="Self.Avaliaco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cantinas">
+              <PropertyRef Name="nomeCantina" />
+            </Principal>
+            <Dependent Role="Avaliacoes">
+              <PropertyRef Name="nomeCantina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tabAvalia__produ__398D8EEE">
+          <End Role="Produtos" Type="Self.Produto" Multiplicity="1" />
+          <End Role="Avaliacoes" Type="Self.Avaliaco" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Produtos">
+              <PropertyRef Name="nomeProduto" />
+            </Principal>
+            <Dependent Role="Avaliacoes">
+              <PropertyRef Name="produto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tabUsers__curso__2F10007B">
+          <End Role="Cursos" Type="Self.Curso" Multiplicity="1" />
+          <End Role="Usuarios" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cursos">
+              <PropertyRef Name="nomeCurso" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="curso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="AedsUfmgPedroBarrosoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Avaliacoes" EntityType="Self.Avaliaco" />
+          <EntitySet Name="Cantinas" EntityType="Self.Cantina" />
+          <EntitySet Name="Cursos" EntityType="Self.Curso" />
+          <EntitySet Name="Produtos" EntityType="Self.Produto" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK__tabAvalia__matri__37A5467C" Association="Self.FK__tabAvalia__matri__37A5467C">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Avaliacoes" EntitySet="Avaliacoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tabAvalia__nomeC__38996AB5" Association="Self.FK__tabAvalia__nomeC__38996AB5">
+            <End Role="Cantinas" EntitySet="Cantinas" />
+            <End Role="Avaliacoes" EntitySet="Avaliacoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tabAvalia__produ__398D8EEE" Association="Self.FK__tabAvalia__produ__398D8EEE">
+            <End Role="Produtos" EntitySet="Produtos" />
+            <End Role="Avaliacoes" EntitySet="Avaliacoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tabUsers__curso__2F10007B" Association="Self.FK__tabUsers__curso__2F10007B">
+            <End Role="Cursos" EntitySet="Cursos" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AedsUfmgPedroBarrosoModelStoreContainer" CdmEntityContainer="AedsUfmgPedroBarrosoEntities">
+          <EntitySetMapping Name="Avaliacoes">
+            <EntityTypeMapping TypeName="AedsUfmgPedroBarrosoModel.Avaliaco">
+              <MappingFragment StoreEntitySet="Avaliacoes">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="datahora" ColumnName="datahora" />
+                <ScalarProperty Name="matricula" ColumnName="matricula" />
+                <ScalarProperty Name="nomeCantina" ColumnName="nomeCantina" />
+                <ScalarProperty Name="produto" ColumnName="produto" />
+                <ScalarProperty Name="comentario" ColumnName="comentario" />
+                <ScalarProperty Name="precoAtual" ColumnName="precoAtual" />
+                <ScalarProperty Name="nota" ColumnName="nota" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cantinas">
+            <EntityTypeMapping TypeName="AedsUfmgPedroBarrosoModel.Cantina">
+              <MappingFragment StoreEntitySet="Cantinas">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nomeCantina" ColumnName="nomeCantina" />
+                <ScalarProperty Name="predio" ColumnName="predio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cursos">
+            <EntityTypeMapping TypeName="AedsUfmgPedroBarrosoModel.Curso">
+              <MappingFragment StoreEntitySet="Cursos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nomeCurso" ColumnName="nomeCurso" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Produtos">
+            <EntityTypeMapping TypeName="AedsUfmgPedroBarrosoModel.Produto">
+              <MappingFragment StoreEntitySet="Produtos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nomeProduto" ColumnName="nomeProduto" />
+                <ScalarProperty Name="tipoProduto" ColumnName="tipoProduto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="AedsUfmgPedroBarrosoModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="matricula" ColumnName="matricula" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="curso" ColumnName="curso" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="senha" ColumnName="senha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
