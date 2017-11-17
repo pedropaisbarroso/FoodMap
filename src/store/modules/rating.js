@@ -65,7 +65,7 @@ export const RatingModule = {
   },
   actions: {
     getRatings({ commit, rootState }) {
-      axios.get(rootState.baseUrl + 'rating')
+      axios.get(rootState.baseUrl + 'Avaliacoes')
         .then(response => {
           commit('setRatings', response.data);
         })

@@ -4,32 +4,49 @@
         :data="ratingSliced(page)"
          stripe class="appTable">fdasfad
         <el-table-column
-          prop="date"
+          prop="datahora"
           label="Data"
           :formatter="formatDate"
-          :header-align="'center'">
+          :header-align="'center'"
+          :align="'center'">
       </el-table-column>
       <el-table-column 
-          prop="name"
+          prop="matricula"
           label='Avaliador'
-          :header-align="'center'">
+          :header-align="'center'"
+          :align="'center'">
       </el-table-column>
       <el-table-column
-          prop="product"
-          label="Avaliado"
-          :header-align="'center'">
+          prop="nomeCantina"
+          label="Cantina"
+          :header-align="'center'"
+          :align="'center'">
       </el-table-column>
       <el-table-column
-          prop="rate"
+          prop="produto"
+          label="Produto"
+          :header-align="'center'"
+          :align="'center'">
+      </el-table-column>
+       <el-table-column
+          prop="precoAtual"
+          label="Preço"
+          :header-align="'center'"
+          :align="'center'">
+      </el-table-column>
+      <el-table-column
+          prop="nota"
           label="Nota"
-          :header-align="'center'">
-      </el-table-column>
-      <!-- <el-table-column
-          prop="tonnes"
-          :label="teste"
-          :header-align="'center'">
+          :header-align="'center'"
+          :align="'center'">
       </el-table-column>
       <el-table-column
+          prop="comentario"
+          label="Comentario"
+          :header-align="'center'"
+          :align="'center'">
+      </el-table-column>
+      <!--<el-table-column
           prop="moisture"
           :label="teste"
           :header-align="'center'">

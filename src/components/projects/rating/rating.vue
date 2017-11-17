@@ -11,12 +11,17 @@
         </div>
         <rating-table></rating-table>
         </el-row> 
+        <add-rating
+          @closeDialog="closeModal"
+          :showModal="showModal">
+        </add-rating>
   </div>  
 </template>
- dafadfas 
+
 <script>  
 import { mapGetters, mapActions } from 'vuex'
 import ratingTable from './ratingTable'
+import addRating from './addRating'
 
 
 export default {
@@ -28,7 +33,8 @@ export default {
     this.getRatings();
   },
   components: {
-      ratingTable: ratingTable
+      ratingTable: ratingTable,
+      addRating: addRating
   },
   data() {
     return {
@@ -36,7 +42,7 @@ export default {
     };
   },
   methods: {
-    ...mapActions('rating', ['getRatings', 'getShifts']),
+    ...mapActions('rating', ['getRatings']),
     openModal(){
       this.showModal = true
     },

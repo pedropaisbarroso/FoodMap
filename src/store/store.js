@@ -11,7 +11,7 @@ export const store = new Vuex.Store({
   state() {
     return {
       locale: 'en',
-      baseUrl: 'http://localhost:64166/api/'
+      baseUrl: 'http://localhost:54918/api/'
     }
   },
   getters: {
