@@ -24,6 +24,10 @@
             <template slot="title">Usuários</template>
             <el-menu-item index="/cadastro">Cadastro</el-menu-item>
           </el-submenu>
+          <el-submenu index="4">
+            <template slot="title">Mapa</template>
+            <el-menu-item index="/mapa">Mapa</el-menu-item>
+          </el-submenu>
         </el-menu>
       </el-col>
   </el-row>
