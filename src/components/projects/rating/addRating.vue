@@ -7,30 +7,18 @@
           </el-form-item><br>
         </div>
         <div align="center">
-          <el-form-item label="Qual o prédio?" label-width="60px">
+          <el-form-item label="Qual cantina?" label-width="60px">
             <el-col :span="60">
-              <el-select v-model="value" placeholder="Select">
+              <el-select v-model="newRating.cantina" placeholder="Select">
                 <el-option
-                  v-for="item in options"
+                  v-for="item in Options"
                   :key="item.value"
                   :label="item.label"
                   :value="item.value">
                 </el-option>
               </el-select>
             </el-col>
-          </el-form-item>
-        <el-form-item label="Qual o produto?">
-          <el-col :span="24">
-            <el-select v-model="value" placeholder="Select">
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value">
-              </el-option>
-            </el-select>
-          </el-col>
-        </el-form-item><br>
+          </el-form-item><br>
         </div>
         <div align="center">
           <el-form-item label="Qual o tipo do produto?" align="center">
@@ -41,19 +29,19 @@
         <div align="center">
           <el-form-item label="Qual o produto">
             <el-col :span="24">
-              <el-select v-model="value" placeholder="Select">
+              <el-select v-model="newRating.produto" placeholder="Select">
                 <el-option
-                  v-for="item in options"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value">
+                  v-for="item in produtos"
+                  :key="item.name"
+                  :label="item.name"
+                  :value="item.name">
                 </el-option>
               </el-select>
             </el-col>
           </el-form-item>
           <el-form-item label="Qual o preço do produto?">
             <el-form-item>
-             <el-input v-model="newRating.precoAtual"></el-input>
+             <el-input v-model="newRating.precoAtual" type="Number"></el-input>
             </el-form-item>
           </el-form-item><br><br>
           <el-form-item label="Qual a nota do rango?">
@@ -100,28 +88,36 @@ export default {
       newRating: {
         name: ''
       },
+      produtos: '',
+      cantinas: '',
        options: [{
           value: 'Option1',
-          label: 'Engenharia'
+          label: 'Engenharia de Baixo'
         }, {
           value: 'Option2',
-          label: 'Biologia'
+          label: 'Engenharia de Baixo'
         }, {
           value: 'Option3',
-          label: 'Veterinária'
+          label: 'Icex'
         }, {
           value: 'Option4',
-          label: 'Option4'
+          label: 'Educação Física'
         }, {
           value: 'Option5',
-          label: 'Option5'
+          label: 'Música'
+        }, {
+          value: 'Option6',
+          label: 'Coltec'
+        }, {
+          value: 'Option5',
+          label: 'Farmácia'
         }],
         value: '',
       labelPosition: 'right'
     }
   },
   computed: {
-    ...mapGetters('rating', ['ratingData']),
+    ...mapGetters('rating', ['ratingData'], ['produtos'], ['cantinas']),
     validateSubmit(){
       if(!this.newRating.name)
         return true;
@@ -130,7 +126,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions('rating', ['addRating', 'getRatings']),
+    ...mapActions('rating', ['addRating', 'getRatings', 'getProdutos', 'getCantinas']),
     closeDialog(){
       this.$emit('closeDialog',false);
       this.newRating = {

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2006
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodMap.Server", "FoodMapp.Server\FoodMap.Server.csproj", "{B176FA30-7F30-4E6D-872E-E106C272551D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B176FA30-7F30-4E6D-872E-E106C272551D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B176FA30-7F30-4E6D-872E-E106C272551D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B176FA30-7F30-4E6D-872E-E106C272551D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B176FA30-7F30-4E6D-872E-E106C272551D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {70610987-3218-4877-A8A8-342D373E430E}
+	EndGlobalSection
+EndGlobal
