@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Rating from '../components/projects/rating/rating.vue'
 import Cadastro from '../components/projects/cadastro/cadastro.vue'
-import Mapa from '../components/projects/cadastro/map.vue'
+import Mapa from '../components/projects/mapas/mapas.vue'
 Vue.use(Router)
 
 
