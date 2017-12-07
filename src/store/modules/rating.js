@@ -8,12 +8,16 @@ export const RatingModule = {
   state() {
     return {
       ratings: [],
+      produtos: [],
+      cantinas: [],
     }
   },
   getters: {
     ratingData: (state) => state.ratings,
     ratingLength: (state) => state.ratings.length,
     ratings: (state) => state.ratings,
+    productData: (state) => state.products,
+    produtos: (state) => state.produtos,
     content(state, getters, rootState) {
  
     },
@@ -34,6 +38,18 @@ export const RatingModule = {
       //   rating = _processEditableFields(rating)
       // });
       state.ratings = ratings;
+    },
+    setProdutos(state, produtos) {
+      // ratings.forEach(rating => {
+      //   rating = _processEditableFields(rating)
+      // });
+      state.produtos = produtos;
+    },
+    setCantinas(state, cantinas) {
+      // ratings.forEach(rating => {
+      //   rating = _processEditableFields(rating)
+      // });
+      state.cantinas = cantinas;
     },
     addNewRating(state, newRating) {
       let shiftValue = state.shifts.find(d => parseFloat(d.name) === newRating.dateShift.shiftId);
@@ -68,6 +84,18 @@ export const RatingModule = {
       axios.get(rootState.baseUrl + 'Avaliacoes')
         .then(response => {
           commit('setRatings', response.data);
+        })
+    },
+    getProducts({ commit, rootState }) {
+      axios.get(rootState.baseUrl + 'Produtos')
+        .then(response => {
+          commit('setProdutos', response.data);
+        })
+    },
+    getCantinas({ commit, rootState }) {
+      axios.get(rootState.baseUrl + 'Cantinas')
+        .then(response => {
+          commit('setCantinas', response.data);
         })
     },
     updateRating({ state, commit, rootState }, ratingIndex) {
